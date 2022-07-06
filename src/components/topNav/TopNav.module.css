@@ -1,0 +1,27 @@
+.nav {
+}
+
+.nav__ul {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.nav__li {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+}
+
+.nav__li:hover {
+    color: grey;
+    padding-bottom: 0.2rem;
+    border-bottom: solid 0.3rem grey;
+}
+
+.nav__li--active {
+    color: orange;
+    padding-bottom: 0.2rem;
+    border-bottom: solid 0.3rem orange;
+}

@@ -1,0 +1,23 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article__image {
+    max-height: 20rem;
+}
+
+.article__img {
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.article__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}

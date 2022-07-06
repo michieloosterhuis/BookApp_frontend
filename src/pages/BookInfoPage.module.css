@@ -1,0 +1,24 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.book-cover {
+    height: 20rem;
+    max-width: 100%;
+}
+
+.not-available {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: orangered;
+}
+
+
+

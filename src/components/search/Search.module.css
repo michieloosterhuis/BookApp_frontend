@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+
+}
+
+.form__label {
+    display: flex;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.form__input {
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: rgb(245, 245, 245);
+}

@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: center;
+    min-height: 4rem;
+    padding: 0.5rem;
+    background-color: black;
+}
+
+.header__div {
+    display: flex;
+    flex-basis: 800px;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    color: white;
+}
+
+.header__span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.header__img {
+    height: 2.5rem;
+}
+
+.header__h2 {
+    font-size: 1.5rem;
+}

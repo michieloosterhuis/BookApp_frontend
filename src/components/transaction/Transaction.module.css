@@ -1,0 +1,14 @@
+.transaction {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+}
+
+.context-actions {
+    display: flex;
+    gap: 0.5rem;
+}
