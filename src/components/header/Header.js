@@ -1,6 +1,5 @@
 import React from 'react';
 import TopNav from "../topNav/TopNav";
-import icon_book from "../../assets/icon_book.svg";
 import styles from './Header.module.css';
 import {useHistory} from "react-router-dom";
 
@@ -11,7 +10,7 @@ function Header() {
         <header className={styles["header"]}>
             <div className={styles["header__div"]}>
                 <span className={styles["header__span"]} onClick={() => history.push("/")}>
-                    <img className={styles["header__img"]} src={icon_book} alt="book-icon"/>
+                    <i className="fa-solid fa-book-open fa-2x"></i>
                     <h2 className={styles["header__h2"]}>BookApp</h2>
                 </span>
                 <TopNav/>

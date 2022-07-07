@@ -1,38 +1,26 @@
 import React, {useContext} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import styles from './TopNav.module.css';
-import icon_my_book from "../../assets/icon_my_book.svg";
-import icon_favorite from "../../assets/icon_favorite.svg";
-import icon_transaction from "../../assets/icon_transaction.svg";
-import icon_me from "../../assets/icon_me.svg";
-
 
 function TopNav(props) {
+    const history = useHistory();
     const {isAuth, user, logout} = useContext(AuthContext);
 
     return (
-        <nav className={styles["nav"]}>
+        <nav>
             <ul className={styles["nav__ul"]}>
 
                 {isAuth === false &&
                     <>
                         <li>
-                            <NavLink
-                                to="/login"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                Login
+                            <NavLink className={styles["nav-link"]} to="/login" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-key"/> Inloggen
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/register"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                Register
+                            <NavLink className={styles["nav-link"]} to="/register" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-address-card"/> Registreren
                             </NavLink>
                         </li>
                     </>
@@ -41,58 +29,33 @@ function TopNav(props) {
                 {isAuth &&
                     <>
                         <li>
-                            <NavLink
-                                to="/search-books"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                Search
+                            <NavLink className={styles["nav-link"]} to="/search-books" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-magnifying-glass"/> Zoeken
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/my-books"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                My books
+                            <NavLink className={styles["nav-link"]} to="/my-books" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-book"/> Boeken
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/my-favorites"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                My favorites
+                            <NavLink className={styles["nav-link"]} to="/my-favorites" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-heart"/> Favorites
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/my-transactions"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                            >
-                                My transactions
+                            <NavLink className={styles["nav-link"]} to="/my-transactions" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-download"/> Transactions
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/my-profile"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["active-link"]}
-                            >
-                                {user.username}
+                            <NavLink className={styles["nav-link"]} to="/my-profile" exact activeClassName={styles["active-link"]}>
+                                <i className="fa-solid fa-user"/> Profiel
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/"
-                                className={styles["nav__li"]}
-                                exact activeClassName={styles["nav__li--active"]}
-                                onClick={logout}
-                            >
-                                Uitloggen
+                            <NavLink className={styles["nav-link"]} to="/" exact activeClassName={styles["active-link"]} onClick={logout}>
+                                <i className="fa-solid fa-person-walking-arrow-right"/> Logout
                             </NavLink>
                         </li>
                     </>

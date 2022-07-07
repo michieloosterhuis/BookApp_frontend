@@ -3,7 +3,7 @@
     justify-content: center;
     min-height: 4rem;
     padding: 0.5rem;
-    background-color: black;
+    background-color: #003049;
 }
 
 .header__div {
@@ -21,10 +21,6 @@
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-}
-
-.header__img {
-    height: 2.5rem;
 }
 
 .header__h2 {

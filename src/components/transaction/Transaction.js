@@ -1,10 +1,6 @@
 import React, {useContext} from 'react';
 import Book from "../book/Book";
 import styles from './Transaction.module.css';
-import icon_give from '../../assets/icon_give.svg';
-import icon_receive from '../../assets/icon_recieve.svg';
-import icon_give_red from '../../assets/icon_give_red.svg';
-import icon_receive_green from '../../assets/icon_recieve_green.svg';
 
 import {AuthContext} from "../../context/AuthContext";
 import Button from "../button/Button";
@@ -44,8 +40,8 @@ function Transaction({transactionData, role, children}) {
                 transactionType={requestedBook.transactionType}
                 owner={requestedBook.owner}
                 children={user.username === requestedBook.owner.username
-                    ? <img src={icon_give_red}/>
-                    : <img src={icon_receive_green}/>
+                    ? <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
+                    : <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
                 }
             />
 
@@ -61,8 +57,8 @@ function Transaction({transactionData, role, children}) {
                     transactionType={exchangeBook.transactionType}
                     owner={exchangeBook.owner}
                     children={user.username === exchangeBook.owner.username
-                        ? <img src={icon_give_red}/>
-                        : <img src={icon_receive_green}/>
+                        ? <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
+                        : <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
                     }
                 />
             }

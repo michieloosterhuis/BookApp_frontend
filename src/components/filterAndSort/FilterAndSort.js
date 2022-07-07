@@ -22,110 +22,99 @@ function FilterAndSort({sort, setSort, languageFilter, setLanguageFilter, transa
     }
 
     return (
-        <form onSubmit={handleSubmit(applySortAndFilter)} className={styles["sort-filter"]}>
-            <fieldset>
-                <legend>Sorteren</legend>
+        <form onSubmit={handleSubmit(applySortAndFilter)} className={styles["form"]}>
+            <legend>Sorteren</legend>
+            <label htmlFor="title">
+                <input
+                    type="radio"
+                    id="title"
+                    value="title"
+                    {...register("sort")}
+                />
+                Sorteren op titel
+            </label>
+            <label htmlFor="author">
+                <input
+                    type="radio"
+                    id="author"
+                    value="author"
+                    {...register("sort")}
+                />
+                Sorteren op schrijver
+            </label>
 
-                <label htmlFor="title">
-                    <input
-                        type="radio"
-                        id="title"
-                        value="title"
-                        {...register("sort")}
-                    />
-                    Sorteren op titel
-                </label>
-                <label htmlFor="author">
-                    <input
-                        type="radio"
-                        id="author"
-                        value="author"
-                        {...register("sort")}
-                    />
-                    Sorteren op schrijver
-                </label>
-            </fieldset>
+            <legend>Taal</legend>
+            <label htmlFor="language">
+                <input
+                    type="checkbox"
+                    id="language"
+                    value="dutch"
+                    {...register("languageFilter")}
+                />
+                Nederlands
+            </label>
+            <label htmlFor="language">
+                <input
+                    type="checkbox"
+                    id="language"
+                    value="english"
+                    {...register("languageFilter")}
+                />
+                Engels
+            </label>
+            <label htmlFor="language">
+                <input
+                    type="checkbox"
+                    id="language"
+                    value="german"
+                    {...register("languageFilter")}
+                />
+                Duits
+            </label>
+            <label htmlFor="language">
+                <input
+                    type="checkbox"
+                    id="language"
+                    value="french"
+                    {...register("languageFilter")}
+                />
+                Frans
+            </label>
 
-            <fieldset>
-                <legend>Taal</legend>
+            <legend>Type transactie</legend>
+            <label htmlFor="transaction-type">
+                <input
+                    type="checkbox"
+                    id="transaction-type"
+                    value="gift"
+                    {...register("transactionTypeFilter")}
+                />
+                Gratis afhalen
+            </label>
+            <label htmlFor="transaction-type">
+                <input
+                    type="checkbox"
+                    id="transaction-type"
+                    value="exchange_for_book"
+                    {...register("transactionTypeFilter")}
+                />
+                Ruilen voor een boek
+            </label>
+            <label htmlFor="transaction-type">
+                <input
+                    type="checkbox"
+                    id="transaction-type"
+                    value="exchange_for_cake"
+                    {...register("transactionTypeFilter")}
+                />
+                Ruilen voor gebak
+            </label>
 
-                <label htmlFor="language">
-                    <input
-                        type="checkbox"
-                        id="language"
-                        value="dutch"
-                        {...register("languageFilter")}
-                    />
-                    Nederlands
-                </label>
-
-                <label htmlFor="language">
-                    <input
-                        type="checkbox"
-                        id="language"
-                        value="english"
-                        {...register("languageFilter")}
-                    />
-                    Engels
-                </label>
-
-                <label htmlFor="language">
-                    <input
-                        type="checkbox"
-                        id="language"
-                        value="german"
-                        {...register("languageFilter")}
-                    />
-                    Duits
-                </label>
-
-                <label htmlFor="language">
-                    <input
-                        type="checkbox"
-                        id="language"
-                        value="french"
-                        {...register("languageFilter")}
-                    />
-                    Frans
-                </label>
-
-            </fieldset>
-
-            <fieldset>
-                <legend>Type transactie</legend>
-
-                <label htmlFor="transaction-type">
-                    <input
-                        type="checkbox"
-                        id="transaction-type"
-                        value="gift"
-                        {...register("transactionTypeFilter")}
-                    />
-                    Gratis afhalen
-                </label>
-
-                <label htmlFor="transaction-type">
-                    <input
-                        type="checkbox"
-                        id="transaction-type"
-                        value="exchange_for_book"
-                        {...register("transactionTypeFilter")}
-                    />
-                    Ruilen voor een boek
-                </label>
-
-                <label htmlFor="transaction-type">
-                    <input
-                        type="checkbox"
-                        id="transaction-type"
-                        value="exchange_for_cake"
-                        {...register("transactionTypeFilter")}
-                    />
-                    Ruilen voor gebak
-                </label>
-
-            </fieldset>
-            <Button type="submit" text="Toepassen"/>
+            <Button
+                text="Toepassen"
+                icon="fa-solid fa-circle-check"
+                type="submit"
+            />
         </form>
     );
 };
