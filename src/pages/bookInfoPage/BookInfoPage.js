@@ -46,7 +46,7 @@ function BookInfoPage(props) {
 
         getBook();
 
-    }, [bookId]);
+    }, [bookId, statusMessage]);
 
     async function addTransaction(bookId) {
         toggleLoading(true);
@@ -100,13 +100,37 @@ function BookInfoPage(props) {
         toggleLoading(false);
     }
 
+    async function deleteMyBook(bookId) {
+        toggleLoading(true);
+
+        try {
+            const response = await axios.delete(
+                `http://localhost:8080/api/v1/my-books/${bookId}`,
+                {
+                    headers: {
+                        "Content-Type": 'application/json',
+                        Authorization: token,
+                    }
+                });
+            console.log("deleteMyBook:", response);
+            setStatusMessage("Boek verwijderd...");
+            history.push("/my-books")
+        } catch (e) {
+            console.error("deleteMyBook:", e.response.data, e);
+            setStatusMessage("Boek kan niet worden verwijderd...");
+        }
+
+        toggleLoading(false);
+    }
+
+
     return (
         <>
             <PageHeader
                 pageTitle="Book info"
                 children={
                     <Button
-                        text="Back"
+                        text="Terug"
                         icon="fa-solid fa-circle-arrow-left"
                         onClick={() => history.goBack()}
                     />
@@ -114,10 +138,15 @@ function BookInfoPage(props) {
             />
             <article className={styles["article"]}>
                 <div className={styles["book-cover"]}>
-                    <img src={bookCover && bookCover.url} alt="book cover"/>
+                    {bookCover
+                        ? <img src={bookCover && bookCover.url} alt="book cover"/>
+                        : <i className="fa-solid fa-book-open fa-2x"/>
+                    }
                 </div>
-                <h3>{title}</h3>
-                <p>{author}</p>
+                <div>
+                    <h3>{title}</h3>
+                    <p>{author}</p>
+                </div>
                 <div>
                     <span>{year}</span>
                     <span> | </span>
@@ -127,32 +156,49 @@ function BookInfoPage(props) {
                     {language === "FRENCH" && <span>Frans</span>}
                 </div>
                 <div>
-                    {owner && <>
-                        <span>{owner.username}</span>
-                        <span> | </span>
-                    </>}
                     {transactionType === "GIFT" && <span>Gratis afhalen</span>}
                     {transactionType === "EXCHANGE_FOR_BOOK" && <span>Ruilen voor een boek</span>}
                     {transactionType === "EXCHANGE_FOR_CAKE" && <span>Ruilen voor gebak</span>}
+                    {owner && <>
+                        <span> | </span>
+                        <span>{owner.username}</span>
+                    </>}
                 </div>
-                <div>
-                    {isAvailable === "false" &&
+                {isAvailable === "false" &&
+                    <>
+                        <span className={styles["not-available"]}>In transactie</span>
+                    </>
+                }
+                <div className={styles["context-actions"]}>
+                    {bookData.owner && bookData.owner.username === user.username
+                        ?
                         <>
-                            <span className={styles["not-available"]}>Niet beschikbaar</span>
+                            <Button
+                                icon="fa-solid fa-pen"
+                                onClick={() => history.push(`/edit-my-book/${bookId}`)}
+                                disabled={isAvailable === "false"}
+                            />
+                            <Button
+                                icon="fa-solid fa-trash-can"
+                                onClick={() => deleteMyBook(bookId)}
+                                backgroundColor="#D62828"
+                                disabled={isAvailable === "false"}
+                            />
+                        </>
+                        :
+                        <>
+                            <Button
+                                icon="fa-solid fa-heart"
+                                onClick={() => addToFavorites(bookId)}
+                            />
+                            <Button
+                                icon="fa-solid fa-download"
+                                onClick={() => addTransaction(bookId)}
+                                disabled={isAvailable === "false"}
+                            />
                         </>
                     }
-                </div>
-                <div>
-                    <Button
-                        icon="fa-solid fa-heart"
-                        onClick={() => addToFavorites(bookId)}
-                        disabled={bookData.owner && bookData.owner.username === user.username}
-                    />
-                    <Button
-                        icon="fa-solid fa-download"
-                        onClick={() => addTransaction(bookId)}
-                        disabled={bookData.owner && (bookData.isAvailable === "false" || owner.username === user.username)}
-                    />
+
                 </div>
             </article>
         </>

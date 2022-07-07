@@ -22,7 +22,7 @@ input[type=file] {
     font-size: 1rem;
     padding: 0.5rem;
     border: none;
-    background-color: rgb(245, 245, 245);
+    background-color: #f1f1f1;
     border-radius: 0.5rem;
 }
 

@@ -150,11 +150,13 @@ function MyFavoritesPage(props) {
                                                 <Button
                                                     icon="fa-solid fa-download"
                                                     onClick={() => addTransaction(bookId)}
+                                                    backgroundColor="#649B92"
                                                     disabled={isAvailable === "false" || owner.username === user.username}
                                                 />
                                                 <Button
-                                                    icon="fa-solid fa-trash"
+                                                    icon="fa-solid fa-trash-can"
                                                     onClick={() => deleteMyFavorite(id)}
+                                                    backgroundColor="#D62828"
                                                 />
                                             </>
                                         }

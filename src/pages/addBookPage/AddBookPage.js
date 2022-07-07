@@ -90,7 +90,7 @@ function AddBookPage(props) {
                 pageTitle="Boek toevoegen"
                 children={
                     <Button
-                        text="Back"
+                        text="Vorige"
                         icon="fa-solid fa-circle-arrow-left fa"
                         onClick={() => history.goBack()}
                     />

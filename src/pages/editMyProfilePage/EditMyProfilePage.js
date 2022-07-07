@@ -128,7 +128,7 @@ function EditMyProfilePage(props) {
                 pageTitle="Profiel bewerken"
                 children={
                     <Button
-                        text="Back"
+                        text="Vorige"
                         icon="fa-solid fa-circle-arrow-left"
                         onClick={() => history.goBack()}
                     />

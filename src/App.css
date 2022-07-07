@@ -1,27 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 root {
-    --rose-madder: hsla(357, 72%, 53%, 1);
-    --orange-soda: hsla(14, 78%, 57%, 1);
-    --snow: hsla(11, 73%, 97%, 1);
-    --white: hsla(0, 0%, 100%, 1);
-    --jet: hsla(0, 0%, 16%, 1);
+    --color-dark: #003049;
+    --color-red: #D62828;
+    --color-orange: #F77F00;
+    --color-yellow: #FCBF49;
+    --color-beige: #EAE2B7;
+    --color-grey: #f1f1f1;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
 }
 
-.list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #003049;
 }
 
 img {
     max-width: 100%;
     max-height: 100%;
+}
+
+input {
+    outline: none;
+    background-color: #f1f1f1;
+}
+
+input:focus {
+    background-color: #EAE2B7;
+    outline: solid #FCBF49 2px;
 }

@@ -84,7 +84,7 @@ function MyBooksPage(props) {
                 pageTitle="Mijn boeken"
                 children={
                     <Button
-                        text="Add book"
+                        text="Boek toevoegen"
                         icon="fa-solid fa-circle-plus"
                         onClick={() => history.push("/add-book")}
                     />
@@ -117,9 +117,10 @@ function MyBooksPage(props) {
                                                     disabled={isAvailable === "false"}
                                                 />
                                                 <Button
-                                                    icon="fa-solid fa-trash"
+                                                    icon="fa-solid fa-trash-can"
                                                     onClick={() => deleteMyBook(id)}
                                                     disabled={isAvailable === "false"}
+                                                    backgroundColor="#D62828"
                                                 />
                                             </>
                                         }

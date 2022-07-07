@@ -1,14 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
-import {AuthContext} from "../../context/AuthContext";
 import Button from "../../components/button/Button";
 import PageHeader from "../../components/pageHeader/pageHeader";
 import styles from "./EditMyBookPage.module.css";
 
 function EditMyBookPage(props) {
-    const {isAuth, user} = useContext(AuthContext);
     const token = localStorage.getItem("token");
 
     const history = useHistory();
@@ -131,7 +129,7 @@ function EditMyBookPage(props) {
                 pageTitle="Boek bewerken"
                 children={
                     <Button
-                        text="Back"
+                        text="Vorige"
                         icon="fa-solid fa-circle-arrow-left"
                         onClick={() => history.goBack()} />
                 }
@@ -144,7 +142,10 @@ function EditMyBookPage(props) {
                         <label className={styles["form__input--file"]} htmlFor="book-cover">
                             {previewUrl
                                 ? <img className={styles["form__img"]} src={previewUrl} alt="book-cover"/>
-                                : <>{bookData.bookCover && <img className={styles["form__img"]} src={bookData.bookCover.url} alt="book-cover"/>}</>
+                                : <>{bookData.bookCover
+                                    ? <img className={styles["form__img"]} src={bookData.bookCover.url} alt="book-cover"/>
+                                    : <i className="fa-solid fa-book fa-7x"></i>
+                            }</>
                             }
                             <input
                                 type="file"
@@ -154,26 +155,58 @@ function EditMyBookPage(props) {
                         </label>
 
                         <input className={styles["form__input"]}
-                            type="text"
-                            id="title"
-                            {...register("title")}
+                               type="text"
+                               id="title"
+                               placeholder="Titel"
+                               {...register("title",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       }
+                                   })}
                         />
+                        {errors.title && <p className={styles["form__p"]}>{errors.title.message}</p>}
 
                         <input className={styles["form__input"]}
-                            type="text"
-                            id="author"
-                            {...register("author")}
+                               type="text"
+                               id="author"
+                               placeholder="Schrijver"
+                               {...register("author",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       }
+                                   })}
                         />
+                        {errors.author && <p className={styles["form__p"]}>{errors.author.message}</p>}
 
                         <input className={styles["form__input"]}
-                            type="number"
-                            id="year"
-                            {...register("year")}
+                               type="number"
+                               id="year"
+                               placeholder="Jaartal"
+                               {...register("year",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       },
+                                       min: {
+                                           value: 1450,
+                                           message: "De boekdrukkunst was toen nog niet uitgevonden..."
+                                       },
+                                       max: {
+                                           value: new Date().getFullYear(),
+                                           message: "Dit jaartal ligt in de toekomst..."
+                                       },
+                                   })}
                         />
+                        {errors.year && <p className={styles["form__p"]}>{errors.year.message}</p>}
 
                         <select className={styles["form__select"]}
-                            id="language"
-                            {...register("language")}
+                                id="language"
+                                {...register("language")}
                         >
                             <option value="DUTCH">Nederlands</option>
                             <option value="ENGLISH">Engels</option>
@@ -182,8 +215,8 @@ function EditMyBookPage(props) {
                         </select>
 
                         <select className={styles["form__select"]}
-                            id="transaction-type"
-                            {...register("transactionType")}
+                                id="transaction-type"
+                                {...register("transactionType")}
                         >
                             <option value="GIFT">Gratis af te halen</option>
                             <option value="EXCHANGE_FOR_BOOK">Ruilen voor een boek</option>

@@ -88,7 +88,7 @@ function SelectExchangeBookPage(props) {
                 pageTitle="Ruilboek selecteren"
                 children={
                     <Button
-                        text="Back"
+                        text="Vorige"
                         icon="fa-solid fa-circle-arrow-left"
                         onClick={() => history.goBack()} />
                 }
@@ -115,7 +115,7 @@ function SelectExchangeBookPage(props) {
                                         children={
                                             <>
                                                 <Button
-                                                    text="Select"
+                                                    text="Selecteer"
                                                     icon="fa-solid fa-download"
                                                     onClick={() => addExchangeBookToTransaction(id)}
                                                 />

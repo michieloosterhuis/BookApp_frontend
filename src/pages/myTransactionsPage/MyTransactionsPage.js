@@ -145,8 +145,8 @@ function MyTransactionsPage(props) {
                                                 {(transactionType === "EXCHANGE_FOR_BOOK"
                                                         && transactionStatusCode === "INITIALIZED"
                                                         && myRoleInThisTransaction === "REQUESTER")
-                                                    && <p>Wachten totdat {provider.username} een boek heeft
-                                                        geselecteerd...</p>
+                                                    && <p>...Wachten totdat {provider.username} een boek heeft
+                                                        geselecteerd.</p>
                                                 }
                                                 {(transactionType === "EXCHANGE_FOR_BOOK"
                                                         && transactionStatusCode === "INITIALIZED"
@@ -169,14 +169,14 @@ function MyTransactionsPage(props) {
                                                 {(transactionType === "EXCHANGE_FOR_BOOK"
                                                         && transactionStatusCode === "EXCHANGE_BOOK_SELECTED"
                                                         && myRoleInThisTransaction === "PROVIDER")
-                                                    && <p>Wachten totdat {requester.username} de transactie
-                                                        goedkeurt...</p>
+                                                    && <p>...Wachten totdat {requester.username} de transactie
+                                                        goedkeurt.</p>
                                                 }
                                                 {(transactionType === "EXCHANGE_FOR_CAKE"
                                                         && transactionStatusCode === "INITIALIZED"
                                                         && myRoleInThisTransaction === "REQUESTER")
-                                                    && <p>Wachten totdat {provider.username} de transactie
-                                                        goedkeurt...</p>
+                                                    && <p>...Wachten totdat {provider.username} de transactie
+                                                        goedkeurt.</p>
                                                 }
                                                 {(transactionType === "EXCHANGE_FOR_CAKE"
                                                         && transactionStatusCode === "INITIALIZED"
@@ -189,8 +189,8 @@ function MyTransactionsPage(props) {
                                                 {(transactionType === "GIFT"
                                                         && transactionStatusCode === "INITIALIZED"
                                                         && myRoleInThisTransaction === "REQUESTER")
-                                                    && <p>Wachten totdat {provider.username} de transactie
-                                                        goedkeurt...</p>
+                                                    && <p>...Wachten totdat {provider.username} de transactie
+                                                        goedkeurt.</p>
                                                 }
                                                 {(transactionType === "GIFT"
                                                         && transactionStatusCode === "INITIALIZED"

@@ -28,7 +28,7 @@ function Book({
                     <span className={styles["not-available"]}>In transactie</span>
                 }
             </div>
-            <div className={styles["container"]}>
+            <div className={styles["book-container"]}>
                 <div className={styles["book-cover"]}>
                     {bookCover
                         ? <img src={bookCover.url} alt="book cover"/>
