@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import axios from "axios";
 import Button from "../../components/button/Button";
 import PageHeader from "../../components/pageHeader/pageHeader";
-import styles from "../registerPage/RegisterPage.module.css";
+import styles from "./AddBookPage.module.css";
 
 function AddBookPage(props) {
     const {isAuth, user} = useContext(AuthContext);

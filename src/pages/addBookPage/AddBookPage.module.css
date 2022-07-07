@@ -5,10 +5,14 @@
     gap: 1rem;
 }
 
+.form i {
+    color: #f1f1f1;;
+}
+
 .form__img {
     margin: auto;
     height: 10rem;
-    background-color: rgb(245, 245, 245);
+    background-color: #f1f1f1;
     border-radius: 0.5rem;
 }
 
@@ -39,11 +43,18 @@ input[type=file] {
     font-size: 1rem;
     padding: 0.5rem;
     border: none;
-    background-color: rgb(245, 245, 245);
+    background-color: #f1f1f1;
     border-radius: 0.5rem;
 }
 
 .form__p {
-    color: red;
-    font-size: 0.5rem;
+    min-width: 30rem;
+    margin-top: -0.5rem;
+    padding-inline: 0.5rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+
+    color: #D62828;
 }

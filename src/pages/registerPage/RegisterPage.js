@@ -106,7 +106,7 @@ function RegisterPage(props) {
                         <label className={styles["form__input--file"]} htmlFor="avatar">
                             {previewUrl
                                 ? <img className={styles["form__img"]} src={previewUrl} alt="avatar"/>
-                                : <i className="fa-solid fa-user-plus fa-7x"></i>
+                                : <i className="fa-solid fa-user fa-7x"/>
                             }
                             <input
                                 type="file"
@@ -127,7 +127,7 @@ function RegisterPage(props) {
                                     }
                                 })}
                         />
-                        {errors.firstName && <p>{errors.firstName.message}</p>}
+                        {errors.firstName && <p className={styles["form__p"]}>{errors.firstName.message}</p>}
 
                         <input className={styles["form__input"]}
                             type="text"
@@ -141,7 +141,7 @@ function RegisterPage(props) {
                                     }
                                 })}
                         />
-                        {errors.lastName && <p>{errors.lastName.message}</p>}
+                        {errors.lastName && <p className={styles["form__p"]}>{errors.lastName.message}</p>}
 
                         <input className={styles["form__input"]}
                             type="text"
@@ -155,7 +155,7 @@ function RegisterPage(props) {
                                     }
                                 })}
                         />
-                        {errors.city && <p>{errors.city.message}</p>}
+                        {errors.city && <p className={styles["form__p"]}>{errors.city.message}</p>}
 
                         <input className={styles["form__input"]}
                             type="email"
@@ -172,7 +172,7 @@ function RegisterPage(props) {
                                 }
                             })}
                         />
-                        {errors.email && <p>{errors.email.message}</p>}
+                        {errors.email && <p className={styles["form__p"]}>{errors.email.message}</p>}
 
                         <input className={styles["form__input"]}
                             type="text"
@@ -186,7 +186,7 @@ function RegisterPage(props) {
                                     }
                                 })}
                         />
-                        {errors.username && <p>{errors.username.message}</p>}
+                        {errors.username && <p className={styles["form__p"]}>{errors.username.message}</p>}
 
                         <input className={styles["form__input"]}
                             type="password"
@@ -204,7 +204,7 @@ function RegisterPage(props) {
                                     }
                                 })}
                         />
-                        {errors.password && <p>{errors.password.message}</p>}
+                        {errors.password && <p className={styles["form__p"]}>{errors.password.message}</p>}
 
                         <Button
                             text="Registreren"

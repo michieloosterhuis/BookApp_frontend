@@ -9,6 +9,10 @@
     max-height: 20rem;
 }
 
+.article i {
+    color: #f1f1f1;;
+}
+
 .article__img {
     border-radius: 0.5rem;
     width: 100%;

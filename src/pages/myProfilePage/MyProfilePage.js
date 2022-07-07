@@ -65,11 +65,12 @@ function MyProfilePage(props) {
             {loading && <p>Loading...</p>}
             {error === false &&
                 <article className={styles["article"]}>
-                    {avatar &&
-                        <image className={styles["article__image"]}>
-                            <img className={styles["article__img"]} src={avatar.url} alt="avatar"/>
-                        </image>
-                    }
+                    <image className={styles["article__image"]}>
+                        {avatar
+                            ? <img className={styles["article__img"]} src={avatar.url} alt="avatar"/>
+                            : <i className="fa-solid fa-user fa-7x"/>
+                        }
+                    </image>
                     <div className={styles["article__div"]}>
                         <h3>{firstName} {lastName}</h3>
                         <p>{city}</p>

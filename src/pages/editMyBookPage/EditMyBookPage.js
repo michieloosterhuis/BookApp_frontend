@@ -131,7 +131,7 @@ function EditMyBookPage(props) {
                     <Button
                         text="Vorige"
                         icon="fa-solid fa-circle-arrow-left"
-                        onClick={() => history.goBack()} />
+                        onClick={() => history.goBack()}/>
                 }
             />
             <div>
@@ -141,11 +141,16 @@ function EditMyBookPage(props) {
 
                         <label className={styles["form__input--file"]} htmlFor="book-cover">
                             {previewUrl
-                                ? <img className={styles["form__img"]} src={previewUrl} alt="book-cover"/>
-                                : <>{bookData.bookCover
-                                    ? <img className={styles["form__img"]} src={bookData.bookCover.url} alt="book-cover"/>
-                                    : <i className="fa-solid fa-book fa-7x"></i>
-                            }</>
+                                ?
+                                <img className={styles["form__img"]} src={previewUrl} alt="book-cover"/>
+                                :
+                                <>
+                                    {bookData.bookCover
+                                        ? <img className={styles["form__img"]} src={bookData.bookCover.url}
+                                               alt="book-cover"/>
+                                        : <i className="fa-solid fa-book fa-7x"></i>
+                                    }
+                                </>
                             }
                             <input
                                 type="file"
@@ -227,7 +232,7 @@ function EditMyBookPage(props) {
                             text="Update"
                             icon="fa-solid fa-circle-check"
                             type="submit"
-                            disabled={!formState.isValid} />
+                            disabled={!formState.isValid}/>
                     </form>
                 }
             </div>

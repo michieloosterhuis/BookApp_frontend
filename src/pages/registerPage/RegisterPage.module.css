@@ -19,7 +19,6 @@ input[type=file] {
     font-size: 1rem;
     padding: 0.5rem;
     border: none;
-    background-color: rgb(245, 245, 245);
     border-radius: 0.5rem;
 }
 
@@ -27,5 +26,17 @@ input[type=file] {
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.form__p {
+    min-width: 30rem;
+    margin-top: -0.5rem;
+    padding-inline: 0.5rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+
+    color: #D62828;
 }
 

@@ -141,8 +141,15 @@ function EditMyProfilePage(props) {
 
                         <label className={styles["form__input--file"]} htmlFor="avatar">
                             {previewUrl
-                                ? <img className={styles["form__img"]} src={previewUrl} alt="avatar"/>
-                                : <>{userData.avatar && <img className={styles["form__img"]} src={userData.avatar.url} alt="avatar"/>}</>
+                                ?
+                                <img className={styles["form__img"]} src={previewUrl} alt="avatar"/>
+                                :
+                                <>
+                                    {userData.avatar
+                                        ? <img className={styles["form__img"]} src={userData.avatar.url} alt="avatar"/>
+                                        : <i className="fa-solid fa-user fa-7x"/>
+                                    }
+                                </>
                             }
                             <input
                                 type="file"
@@ -152,25 +159,60 @@ function EditMyProfilePage(props) {
                         </label>
 
                         <input className={styles["form__input"]}
-                            type="text"
-                            id="first-name"
-                            {...register("firstName")}
+                               type="text"
+                               id="first-name"
+                               {...register("firstName",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       }
+                                   })}
                         />
+                        {errors.firstName && <p className={styles["form__p"]}>{errors.firstName.message}</p>}
+
                         <input className={styles["form__input"]}
-                            type="text"
-                            id="last-name"
-                            {...register("lastName")}
+                               type="text"
+                               id="last-name"
+                               {...register("lastName",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       }
+                                   })}
                         />
+                        {errors.lastName && <p className={styles["form__p"]}>{errors.lastName.message}</p>}
+
                         <input className={styles["form__input"]}
-                            type="text"
-                            id="city"
-                            {...register("city")}
+                               type="text"
+                               id="city"
+                               {...register("city",
+                                   {
+                                       required: {
+                                           value: true,
+                                           message: "Verplicht veld."
+                                       }
+                                   })}
                         />
+                        {errors.city && <p className={styles["form__p"]}>{errors.city.message}</p>}
+
                         <input className={styles["form__input"]}
-                            type="email"
-                            id="email"
-                            {...register("email")}
+                               type="email"
+                               id="email"
+                               {...register("email", {
+                                   required: {
+                                       value: true,
+                                       message: "Verplicht veld."
+                                   },
+                                   pattern: {
+                                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                       message: "Ongeldig email address"
+                                   }
+                               })}
                         />
+                        {errors.city && <p className={styles["form__p"]}>{errors.city.message}</p>}
+
                         <Button
                             text="Opslaan"
                             icon="fa-solid fa-circle-check"
