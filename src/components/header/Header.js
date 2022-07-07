@@ -10,8 +10,8 @@ function Header() {
         <header className={styles["header"]}>
             <div className={styles["header__div"]}>
                 <span className={styles["header__span"]} onClick={() => history.push("/")}>
-                    <i className="fa-solid fa-book-open fa-2x"></i>
-                    <h2 className={styles["header__h2"]}>BookApp</h2>
+                    <i className="fa-solid fa-book-open"/>
+                    <h2>BookApp</h2>
                 </span>
                 <TopNav/>
             </div>

@@ -40,8 +40,8 @@ function Transaction({transactionData, role, children}) {
                 transactionType={requestedBook.transactionType}
                 owner={requestedBook.owner}
                 children={user.username === requestedBook.owner.username
-                    ? <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
-                    : <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
+                    ? <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
+                    : <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
                 }
             />
 
@@ -57,8 +57,8 @@ function Transaction({transactionData, role, children}) {
                     transactionType={exchangeBook.transactionType}
                     owner={exchangeBook.owner}
                     children={user.username === exchangeBook.owner.username
-                        ? <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
-                        : <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
+                        ? <Button icon="fa-solid fa-upload" backgroundColor="#D62828"/>
+                        : <Button icon="fa-solid fa-download" backgroundColor="#649B92"/>
                     }
                 />
             }

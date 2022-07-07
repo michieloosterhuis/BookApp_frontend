@@ -5,7 +5,7 @@
 
 .nav__ul * {
     text-decoration: none;
-    color: white;
+    color: #f1f1f1;
 }
 
 .nav-link {
@@ -21,4 +21,28 @@
 .active-link {
     border-bottom: solid #FCBF49 0.5rem;
     border-radius: 0.5rem;
+}
+
+.active-link > i,
+.active-link > span {
+    color: #FCBF49;
+}
+
+@media screen and (max-width: 850px) {
+    .nav__ul {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    .nav-link span {
+        display: none;
+    }
+    .nav-link {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nav {
+        width: 100%;
+    }
 }

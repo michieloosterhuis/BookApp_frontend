@@ -30,7 +30,10 @@ function Book({
             </div>
             <div className={styles["container"]}>
                 <div className={styles["book-cover"]}>
-                    <img src={bookCover && bookCover.url} alt="book cover"/>
+                    {bookCover
+                        ? <img src={bookCover.url} alt="book cover"/>
+                        : <i className="fa-solid fa-book-open fa-2x"></i>
+                    }
                 </div>
                 <div className={styles["book-info"]}>
                     <Link to={`/book-info/${id}`}><h3>{title}</h3></Link>

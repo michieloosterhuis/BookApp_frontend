@@ -20,15 +20,17 @@
 }
 
 .book-cover {
-    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80px;
     height: 100px;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
 }
 
 .book-cover img {
     max-width: 100%;
     max-height: 100%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .book-info {
@@ -58,4 +60,15 @@
     padding: 0.25rem;
     border-radius: 0.25rem;
     background-color: #D62828;
+}
+
+.book-cover i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    color: white;
+    background-color: #f1f1f1;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
