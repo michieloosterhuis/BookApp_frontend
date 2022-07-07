@@ -35,11 +35,12 @@
 .not-available {
     font-size: 0.75rem;
     font-weight: bold;
-    color: white;
-    padding: 0.25rem;
+    color: #003049;
+    padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: orangered;
+    background-color: #f1f1f1;
 }
+
 .context-actions {
     display: flex;
     gap: 0.5rem;
